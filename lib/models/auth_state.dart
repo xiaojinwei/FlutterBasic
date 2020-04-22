@@ -37,4 +37,14 @@ class AuthState {
     );
   }
 
+  @override
+  String toString() {
+    return '''AuthState{
+            isAuthenticated: $isAuthenticated,
+            isAuthenticating: $isAuthenticating,
+            user: $user,
+            error: $error,
+        }''';
+  }
+
 }

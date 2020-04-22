@@ -5,6 +5,7 @@ import 'package:flutter_basic/pages/tab/home_page.dart';
 import 'package:flutter_basic/pages/tab/my_page.dart';
 import 'package:flutter_basic/presentation/platform_adaptive.dart';
 import 'package:flutter_basic/styles/colors.dart';
+import 'package:flutter_basic/utils/i18n_util.dart';
 
 
 class TabNavigator extends StatefulWidget{
@@ -16,7 +17,7 @@ class _TabNavigatorState extends State<TabNavigator>{
 
   final Color _defaultColor = colorStyles['light_gray'];
   final Color _activeColor = colorStyles['primary'];
-  final List<String> _titles = ['首页','发现','我的'];
+  final List<String> _titles = [];
   String _title = '';
 
   int _currentIndex = 0;
@@ -24,12 +25,16 @@ class _TabNavigatorState extends State<TabNavigator>{
 
   @override
   void initState() {
-    _title = _titles[0];
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    _titles.clear();
+    _titles.add(I18nUtil.getS(context).tab_home);
+    _titles.add(I18nUtil.getS(context).tab_discover);
+    _titles.add(I18nUtil.getS(context).tab_my);
+    _title = _titles[0];
     return Scaffold(
       appBar: AppBar(
         title: Text(_title),
@@ -43,20 +48,14 @@ class _TabNavigatorState extends State<TabNavigator>{
           MyPage()
         ],
         onPageChanged: (index){
-          setState(() {
-            _currentIndex = index;
-            _title = _titles[index];
-          });
+          _switchTab(index);
         },
       ),
       bottomNavigationBar: PlatformAdaptiveBottomBar(
         currentIndex: _currentIndex,
         onTap: (index){
           _controller.jumpToPage(index);
-          setState(() {
-            _currentIndex = index;
-            _title = _titles[index];
-          });
+          _switchTab(index);
         },
         items: [
           _itemBar(_currentIndex == 0, Icons.home, _titles[0], _defaultColor, _activeColor),
@@ -66,6 +65,13 @@ class _TabNavigatorState extends State<TabNavigator>{
       ),
       drawer: MainDrawer(),
     );
+  }
+
+  _switchTab(int index){
+    setState(() {
+      _currentIndex = index;
+      _title = _titles[index];
+    });
   }
 
   _itemBar(bool active,IconData icon,String title,Color defaultColor,Color activeColor){

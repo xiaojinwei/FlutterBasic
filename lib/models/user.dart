@@ -13,4 +13,12 @@ class User{
     'id':this.id
   };
 
+  @override
+  String toString() {
+    return '''User{
+            token: $token,
+            id: $id,
+        }''';
+  }
+
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/pages/loading_page.dart';
 import 'package:flutter_basic/presentation/platform_adaptive.dart';
 import 'package:flutter_basic/store/store.dart';
+import 'package:flutter_basic/utils/i18n_util.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_basic/models/app_state.dart';
 import 'package:redux/redux.dart';
@@ -9,6 +12,7 @@ import 'package:redux_persist_flutter/redux_persist_flutter.dart';
 import 'package:flutter_basic/middleware/middleware.dart';
 import 'package:flutter_basic/pages/main_page.dart';
 import 'package:flutter_basic/pages/login_page.dart';
+import 'package:flutter_basic/generated/i18n.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,21 +27,34 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return PersistorGate(
       persistor: persistor,
-      builder: (context) => new StoreProvider(store: store, child: MaterialApp(
-        title: 'Flutter Basic', //在安卓任务管理列表中显示的名称
-        theme: defaultTargetPlatform == TargetPlatform.iOS
-            ? kIOSTheme
-            : kDefaultTheme,
-        routes: <String,WidgetBuilder>{
-          '/':(BuildContext context) => new StoreConnector<AppState,dynamic>(
-            builder: (BuildContext context,dynamic isAuthenticated) => isAuthenticated ? new MainPage() : new LoginPage(),
-            converter: (Store<AppState> store) => store.state.authState.isAuthenticated??false,
-          ),
-          '/main':(BuildContext context) => MainPage(),
-          '/login':(BuildContext context) => LoginPage(),
+      loading: LoadingPage(),
+      builder: (context) => new StoreProvider(store: store, child: StoreBuilder<AppState>(//国际化必须要用StoreBuilder包裹一下
+        builder: (context,store){
+          return MaterialApp(
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            localeResolutionCallback: I18nUtil.localeResolutionCallback(),
+            locale: store.state.locale,//如果locale设置为null或者不指定，那么会跟随系统的Locale从supportedLocales中找是否支持，不支持可以使用localeResolutionCallback来指定支持的Locale
+            title: 'Flutter Basic', //在安卓任务管理列表中显示的名称
+            theme: defaultTargetPlatform == TargetPlatform.iOS
+                ? kIOSTheme
+                : kDefaultTheme,
+            routes: <String,WidgetBuilder>{
+              '/':(BuildContext context) => new StoreConnector<AppState,dynamic>(
+                builder: (BuildContext context,dynamic isAuthenticated) =>
+                isAuthenticated ? MainPage() : LoginPage(),
+                converter: (Store<AppState> store) => store.state.authState.isAuthenticated??false,
+              ),
+              '/main':(BuildContext context) => MainPage(),
+              '/login':(BuildContext context) => LoginPage(),
+            },
+          );
         },
       )),
     );
   }
 }
-

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/presentation/platform_adaptive.dart';
+import 'package:flutter_basic/utils/i18n_util.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_basic/models/app_state.dart';
@@ -10,6 +11,8 @@ class LoginPage extends StatelessWidget{
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
+        title: Text(I18nUtil.getS(context).log_in),
+        centerTitle: true,
         actions: <Widget>[
           IconButton(icon: Icon(Icons.ac_unit), onPressed: ()=>{
 
@@ -82,16 +85,16 @@ class _LoginFormState extends State<LoginForm>{
             child: Column(
               children: <Widget>[
                 new TextFormField(
-                  decoration: new InputDecoration(labelText: '请输入用户名',hintText: 'Username'),
+                  decoration: new InputDecoration(labelText: I18nUtil.getS(context).enter_username),
                   validator: (val) =>
-                  val.isEmpty ? 'Please enter your username.' : null,
+                  val.isEmpty ? I18nUtil.getS(context).enter_username_error : null,
                   onSaved: (val) => _username = val,
                   onFieldSubmitted: (v) => FocusScope.of(context).requestFocus(_passwordFocusNode),
                 ),
                 new TextFormField(
-                  decoration: new InputDecoration(labelText: '请输入密码',hintText: 'Password'),
+                  decoration: new InputDecoration(labelText:  I18nUtil.getS(context).enter_password),
                   validator: (val) =>
-                  val.isEmpty ? 'Please enter your password.' : null,
+                  val.isEmpty ? I18nUtil.getS(context).enter_password_error : null,
                   onSaved: (val) => _password = val,
                   focusNode: _passwordFocusNode,
                   onFieldSubmitted: (value) => _submit(),
@@ -100,7 +103,7 @@ class _LoginFormState extends State<LoginForm>{
                     padding: EdgeInsets.only(top: 20),
                   child: PlatformAdaptiveButton(
                     icon: Icon(Icons.done),
-                    child: new Text('Log In'),
+                    child: new Text(I18nUtil.getS(context).log_in),
                     onPressed: (){
                       _submit();
                       loginAction(context,_username,_password);

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/actions/auth_actions.dart';
 import 'package:flutter_basic/models/app_state.dart';
+import 'package:flutter_basic/pages/setting_page.dart';
 import 'package:flutter_basic/styles/colors.dart';
+import 'package:flutter_basic/utils/i18n_util.dart';
+import 'package:flutter_basic/utils/navigator_util.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:package_info/package_info.dart';
 
@@ -50,9 +53,17 @@ class _MainDrawerState extends State<MainDrawer> {
                 new Text("2.xxx")
               ]
             ),
+            ListTile(
+              title: Text(I18nUtil.getS(context).multi_language),
+              leading: Icon(Icons.language),
+              onTap: (){
+                NavigatorUtil.pop(context);
+                NavigatorUtil.push(context, SettingPage());
+              },
+            ),
             Divider(),
             ListTile(
-              title: Text('Sign Out'),
+              title: Text(I18nUtil.getS(context).log_out),
               leading: Icon(Icons.exit_to_app),
               onTap: ()=>logout(context),
             )

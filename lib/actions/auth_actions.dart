@@ -34,6 +34,6 @@ final Function login = (BuildContext context,String username,String password){
 final Function logout = (BuildContext context){
   return (Store<AppState> store){
     store.dispatch(new UserLogout());
-    Navigator.of(context).pushNamedAndRemoveUntil('/logout', (route) => false);
+    Navigator.of(context).pushNamedAndRemoveUntil('/login', (route) => false);
   };
 };

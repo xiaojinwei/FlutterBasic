@@ -1,0 +1,18 @@
+{
+  "app_name": "Basic",
+  "tab_home": "Home",
+  "tab_discover": "Discover",
+  "tab_my": "My",
+  "multi_language": "Language",
+  "setting": "Setting",
+  "language_auto": "Auto",
+  "language_en": "English",
+  "language_zh_cn": "简体中文",
+  "language_zh_hk": "繁體中文(香港)",
+  "log_in": "Log In",
+  "log_out": "Log Out",
+  "enter_username": "Username",
+  "enter_password": "Password",
+  "enter_username_error": "Please enter your username",
+  "enter_password_error": "Please enter your password"
+}
