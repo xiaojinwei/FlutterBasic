@@ -21,6 +21,7 @@ class LanguagePageState extends State<LanguagePage>{
       return Scaffold(
         appBar: AppBar(
           title: Text(I18nUtil.getS(context).multi_language),
+          centerTitle: true,
         ),
         body: StoreConnector<AppState,dynamic>(
           converter: (store){
@@ -37,7 +38,7 @@ class LanguagePageState extends State<LanguagePage>{
                   trailing: new Radio(
                       value: true,
                       groupValue: model.isSelected == true,
-                      activeColor: colorStyles['primary'],
+                      activeColor: Theme.of(context).primaryColor,
                       onChanged: (value) {
                         switchLanguage(model.locale,changeLocale);
                       }),

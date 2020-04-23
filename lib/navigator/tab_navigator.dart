@@ -15,8 +15,8 @@ class TabNavigator extends StatefulWidget{
 
 class _TabNavigatorState extends State<TabNavigator>{
 
-  final Color _defaultColor = colorStyles['light_gray'];
-  final Color _activeColor = colorStyles['primary'];
+  Color _defaultColor = colorStyles['light_gray'];
+  Color _activeColor = colorStyles['primary'];
   final List<String> _titles = [];
   String _title = '';
 
@@ -30,6 +30,8 @@ class _TabNavigatorState extends State<TabNavigator>{
 
   @override
   Widget build(BuildContext context) {
+    _defaultColor = Colors.grey;
+    _activeColor = Theme.of(context).primaryColor;
     _titles.clear();
     _titles.add(I18nUtil.getS(context).tab_home);
     _titles.add(I18nUtil.getS(context).tab_discover);

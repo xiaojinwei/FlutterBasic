@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter_basic/models/auth_state.dart';
 import 'package:flutter_basic/extension/locale_ext.dart';
+import 'theme_state.dart';
 
 @immutable
 class AppState {
@@ -20,18 +21,23 @@ class AppState {
    */
   final Locale locale;
 
-  AppState({AuthState authState,Locale locale}):
-  this.authState = authState??new AuthState(),this.locale = locale;
+  final ThemeState themeState;
+
+  AppState({AuthState authState,Locale locale,ThemeState themeState}):
+  this.authState = authState??new AuthState(),this.locale = locale,
+  this.themeState = themeState??new ThemeState();
 
   static AppState fromJson(dynamic json) => new AppState(
     authState: new AuthState.fromJson(json['authState']==null ? Map():json['authState']),
-    locale: LocaleExtension.fromJson(json['locale'])
+    locale: LocaleExtension.fromJson(json['locale']),
+    themeState: ThemeState.fromJson(json['themeState'])
   );
 
-  //toJson名字固定
+  /// toJson名字固定
   Map<String,dynamic> toJson() => {
     'authState':authState.toJson(),
-    'locale':locale == null ? null : locale.toJson()
+    'locale':locale == null ? null : locale.toJson(),
+    'themeState':themeState.toJson()
   };
 
   @override
@@ -39,6 +45,7 @@ class AppState {
     return '''AppState{
             authState: $authState,
             locale: $locale,
+            themeState:$themeState
         }''';
   }
 

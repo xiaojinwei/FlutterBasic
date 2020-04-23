@@ -37,6 +37,7 @@ class S implements WidgetsLocalizations {
   String get tab_discover => "Discover";
   String get tab_home => "Home";
   String get tab_my => "My";
+  String get theme => "Theme";
 }
 
 class $zh_HK extends S {
@@ -77,6 +78,8 @@ class $zh_HK extends S {
   String get log_in => "登錄";
   @override
   String get language_en => "English";
+  @override
+  String get theme => "主題";
 }
 
 class $en extends S {
@@ -121,6 +124,8 @@ class $zh_CN extends S {
   String get log_in => "登录";
   @override
   String get language_en => "English";
+  @override
+  String get theme => "主题";
 }
 
 class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {

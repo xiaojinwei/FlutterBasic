@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget{
               new Expanded(
                   child: new Center(
                     child: new FlutterLogo(
-                      colors: Colors.blue,
+                      colors: Theme.of(context).primaryColor,
                       size: 180,
                     ),
                   )
@@ -86,6 +86,7 @@ class _LoginFormState extends State<LoginForm>{
               children: <Widget>[
                 new TextFormField(
                   decoration: new InputDecoration(labelText: I18nUtil.getS(context).enter_username),
+                  cursorColor: Theme.of(context).primaryColor,
                   validator: (val) =>
                   val.isEmpty ? I18nUtil.getS(context).enter_username_error : null,
                   onSaved: (val) => _username = val,
@@ -93,6 +94,7 @@ class _LoginFormState extends State<LoginForm>{
                 ),
                 new TextFormField(
                   decoration: new InputDecoration(labelText:  I18nUtil.getS(context).enter_password),
+                  cursorColor: Theme.of(context).primaryColor,
                   validator: (val) =>
                   val.isEmpty ? I18nUtil.getS(context).enter_password_error : null,
                   onSaved: (val) => _password = val,
@@ -102,8 +104,8 @@ class _LoginFormState extends State<LoginForm>{
                 new Padding(
                     padding: EdgeInsets.only(top: 20),
                   child: PlatformAdaptiveButton(
-                    icon: Icon(Icons.done),
-                    child: new Text(I18nUtil.getS(context).log_in),
+                    icon: Icon(Icons.done,color: Theme.of(context).primaryColor,),
+                    child: new Text(I18nUtil.getS(context).log_in,style: TextStyle(color: Theme.of(context).primaryColor),),
                     onPressed: (){
                       _submit();
                       loginAction(context,_username,_password);

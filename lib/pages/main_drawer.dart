@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basic/actions/auth_actions.dart';
 import 'package:flutter_basic/models/app_state.dart';
 import 'package:flutter_basic/pages/setting_page.dart';
-import 'package:flutter_basic/styles/colors.dart';
 import 'package:flutter_basic/utils/i18n_util.dart';
 import 'package:flutter_basic/utils/navigator_util.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -27,7 +26,7 @@ class _MainDrawerState extends State<MainDrawer> {
               child: DrawerHeader(
                 padding: EdgeInsets.all(0),
                   decoration: new BoxDecoration(
-                    color:  colorStyles['primary_dark'],
+                    color: Theme.of(context).primaryColor,
                   ),
                   child: UserAccountsDrawerHeader(
                     accountEmail: Text('cj_286@163.com'),
@@ -35,7 +34,7 @@ class _MainDrawerState extends State<MainDrawer> {
                     onDetailsPressed: () {},
                     currentAccountPicture: CircleAvatar(
                       child: FlutterLogo(
-                        colors: colorStyles['primary'],
+                        colors: Theme.of(context).primaryColor,
                         size: 54.0,
                       ),
                     ),
@@ -47,15 +46,15 @@ class _MainDrawerState extends State<MainDrawer> {
               applicationLegalese: 'Copyright © cj',
               applicationVersion: _packageInfo.version,
               applicationIcon: Icon(Icons.info),
-              icon: Icon(Icons.info),
+              icon: Icon(Icons.info,color: Theme.of(context).primaryColor,),
               aboutBoxChildren: <Widget>[
                 new Text("1.xxx"),
                 new Text("2.xxx")
               ]
             ),
             ListTile(
-              title: Text(I18nUtil.getS(context).multi_language),
-              leading: Icon(Icons.language),
+              title: Text(I18nUtil.getS(context).setting),
+              leading: Icon(Icons.settings,color: Theme.of(context).primaryColor),
               onTap: (){
                 NavigatorUtil.pop(context);
                 NavigatorUtil.push(context, SettingPage());
@@ -64,7 +63,7 @@ class _MainDrawerState extends State<MainDrawer> {
             Divider(),
             ListTile(
               title: Text(I18nUtil.getS(context).log_out),
-              leading: Icon(Icons.exit_to_app),
+              leading: Icon(Icons.exit_to_app,color: Theme.of(context).primaryColor),
               onTap: ()=>logout(context),
             )
           ],

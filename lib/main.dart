@@ -40,9 +40,10 @@ class MyApp extends StatelessWidget {
             localeResolutionCallback: I18nUtil.localeResolutionCallback(),
             locale: store.state.locale,//如果locale设置为null或者不指定，那么会跟随系统的Locale从supportedLocales中找是否支持，不支持可以使用localeResolutionCallback来指定支持的Locale
             title: 'Flutter Basic', //在安卓任务管理列表中显示的名称
-            theme: defaultTargetPlatform == TargetPlatform.iOS
-                ? kIOSTheme
-                : kDefaultTheme,
+            theme: ThemeData(
+              primarySwatch: store.state.themeState.themeColor,
+              accentColor: store.state.themeState.themeColor,
+            ),
             routes: <String,WidgetBuilder>{
               '/':(BuildContext context) => new StoreConnector<AppState,dynamic>(
                 builder: (BuildContext context,dynamic isAuthenticated) =>
