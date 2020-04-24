@@ -15,5 +15,6 @@
   "enter_password": "Password",
   "enter_username_error": "Please enter your username",
   "enter_password_error": "Please enter your password",
-  "theme":"Theme"
+  "theme":"Theme",
+  "font":"Font"
 }

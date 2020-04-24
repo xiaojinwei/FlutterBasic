@@ -26,6 +26,7 @@ class S implements WidgetsLocalizations {
   String get enter_password_error => "Please enter your password";
   String get enter_username => "Username";
   String get enter_username_error => "Please enter your username";
+  String get font => "Font";
   String get language_auto => "Auto";
   String get language_en => "English";
   String get language_zh_cn => "简体中文";
@@ -80,6 +81,8 @@ class $zh_HK extends S {
   String get language_en => "English";
   @override
   String get theme => "主題";
+  @override
+  String get font => "字體";
 }
 
 class $en extends S {
@@ -126,6 +129,8 @@ class $zh_CN extends S {
   String get language_en => "English";
   @override
   String get theme => "主题";
+  @override
+  String get font => "字体";
 }
 
 class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {

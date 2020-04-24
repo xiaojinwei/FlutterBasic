@@ -15,5 +15,6 @@
   "enter_password": "密碼",
   "enter_username_error": "請輸入用戶名",
   "enter_password_error": "請輸入密碼",
-  "theme":"主題"
+  "theme":"主題",
+  "font":"字體"
 }

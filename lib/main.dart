@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: store.state.themeState.themeColor,
               accentColor: store.state.themeState.themeColor,
+              fontFamily: store.state.themeState.fontFamily,
             ),
             routes: <String,WidgetBuilder>{
               '/':(BuildContext context) => new StoreConnector<AppState,dynamic>(

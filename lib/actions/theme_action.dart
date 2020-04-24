@@ -8,8 +8,20 @@ class ThemeColorAction{
   ThemeColorAction({this.color});
 }
 
+class FontFamilyAction{
+  String fontFamily;
+
+  FontFamilyAction({this.fontFamily});
+}
+
 Function changeThemeColor = (MaterialColor color){
   return (Store<AppState> store){
     store.dispatch(ThemeColorAction(color: color));
+  };
+};
+
+Function changeFontFamily = (String fontFamily){
+  return (Store<AppState> store){
+    store.dispatch(FontFamilyAction(fontFamily: fontFamily));
   };
 };

@@ -7,4 +7,8 @@ class ThemeUtil{
   static Color getThemeColor(BuildContext context){
     return StoreProvider.of<AppState>(context).state.themeState.themeColor;
   }
+
+  static String getFontFamily(BuildContext context){
+    return StoreProvider.of<AppState>(context).state.themeState.fontFamily;
+  }
 }
