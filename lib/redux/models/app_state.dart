@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:flutter_basic/models/auth_state.dart';
+import 'package:flutter_basic/redux/models/auth_state.dart';
 import 'package:flutter_basic/extension/locale_ext.dart';
 import 'theme_state.dart';
 

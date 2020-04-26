@@ -1,17 +1,15 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/pages/loading_page.dart';
-import 'package:flutter_basic/presentation/platform_adaptive.dart';
-import 'package:flutter_basic/store/store.dart';
+import 'package:flutter_basic/ui/pages/loading_page.dart';
+import 'package:flutter_basic/redux/store/store.dart';
 import 'package:flutter_basic/utils/i18n_util.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_basic/models/app_state.dart';
+import 'package:flutter_basic/redux/models/app_state.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_persist_flutter/redux_persist_flutter.dart';
-import 'package:flutter_basic/middleware/middleware.dart';
-import 'package:flutter_basic/pages/main_page.dart';
-import 'package:flutter_basic/pages/login_page.dart';
+import 'package:flutter_basic/redux/middleware/middleware.dart';
+import 'package:flutter_basic/ui/pages/main_page.dart';
+import 'package:flutter_basic/ui/pages/login_page.dart';
 import 'package:flutter_basic/generated/i18n.dart';
 
 void main() {

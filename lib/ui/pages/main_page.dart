@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/navigator/tab_navigator.dart';
+import 'package:flutter_basic/ui/navigator/tab_navigator.dart';
 
 class MainPage extends StatefulWidget{
   @override

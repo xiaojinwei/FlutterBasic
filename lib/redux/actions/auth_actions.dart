@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/models/user.dart';
+import 'package:flutter_basic/redux/models/user.dart';
 import 'package:redux/redux.dart';
-import 'package:flutter_basic/models/app_state.dart';
+import 'package:flutter_basic/redux/models/app_state.dart';
 
 class UserLoginRequest {}
 

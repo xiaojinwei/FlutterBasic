@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/presentation/platform_adaptive.dart';
+import 'package:flutter_basic/ui/presentation/platform_adaptive.dart';
 import 'package:flutter_basic/utils/i18n_util.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_basic/models/app_state.dart';
-import 'package:flutter_basic/actions/auth_actions.dart';
+import 'package:flutter_basic/redux/models/app_state.dart';
+import 'package:flutter_basic/redux/actions/auth_actions.dart';
 
 class LoginPage extends StatelessWidget{
   @override

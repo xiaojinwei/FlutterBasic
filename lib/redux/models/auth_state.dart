@@ -1,4 +1,4 @@
-import 'package:flutter_basic/models/user.dart';
+import 'package:flutter_basic/redux/models/user.dart';
 
 class AuthState {
   final bool isAuthenticated;

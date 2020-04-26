@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/actions/theme_action.dart';
+import 'package:flutter_basic/redux/actions/theme_action.dart';
 import 'package:flutter_basic/common/const.dart';
-import 'package:flutter_basic/models/app_state.dart';
+import 'package:flutter_basic/redux/models/app_state.dart';
 import 'package:flutter_basic/utils/i18n_util.dart';
 import 'package:flutter_basic/utils/theme_util.dart';
 import 'package:flutter_redux/flutter_redux.dart';

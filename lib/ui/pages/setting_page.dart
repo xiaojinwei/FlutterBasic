@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/models/app_state.dart';
-import 'package:flutter_basic/pages/font_page.dart';
-import 'package:flutter_basic/pages/language_page.dart';
-import 'package:flutter_basic/pages/theme_page.dart';
+import 'package:flutter_basic/redux/models/app_state.dart';
+import 'package:flutter_basic/ui/pages/font_page.dart';
+import 'package:flutter_basic/ui/pages/language_page.dart';
+import 'package:flutter_basic/ui/pages/theme_page.dart';
 import 'package:flutter_basic/utils/i18n_util.dart';
 import 'package:flutter_basic/utils/navigator_util.dart';
 import 'package:flutter_basic/utils/theme_util.dart';

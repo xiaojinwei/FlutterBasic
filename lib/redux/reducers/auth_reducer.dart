@@ -1,6 +1,6 @@
 import 'package:redux/redux.dart';
-import 'package:flutter_basic/models/auth_state.dart';
-import 'package:flutter_basic/actions/auth_actions.dart';
+import 'package:flutter_basic/redux/models/auth_state.dart';
+import 'package:flutter_basic/redux/actions/auth_actions.dart';
 
 Reducer<AuthState> authReducer = combineReducers([
   new TypedReducer<AuthState,UserLoginRequest>(userLoginRequestReducer),

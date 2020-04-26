@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/pages/main_drawer.dart';
-import 'package:flutter_basic/pages/tab/discover_page.dart';
-import 'package:flutter_basic/pages/tab/home_page.dart';
-import 'package:flutter_basic/pages/tab/my_page.dart';
-import 'package:flutter_basic/presentation/platform_adaptive.dart';
+import 'package:flutter_basic/ui/pages/main_drawer.dart';
+import 'package:flutter_basic/ui/pages/tab/discover_page.dart';
+import 'package:flutter_basic/ui/pages/tab/home_page.dart';
+import 'package:flutter_basic/ui/pages/tab/my_page.dart';
+import 'package:flutter_basic/ui/presentation/platform_adaptive.dart';
 import 'package:flutter_basic/styles/colors.dart';
 import 'package:flutter_basic/utils/i18n_util.dart';
 

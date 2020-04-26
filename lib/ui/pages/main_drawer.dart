@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/actions/auth_actions.dart';
-import 'package:flutter_basic/models/app_state.dart';
-import 'package:flutter_basic/pages/setting_page.dart';
+import 'package:flutter_basic/redux/actions/auth_actions.dart';
+import 'package:flutter_basic/redux/models/app_state.dart';
+import 'package:flutter_basic/ui/pages/setting_page.dart';
 import 'package:flutter_basic/utils/i18n_util.dart';
 import 'package:flutter_basic/utils/navigator_util.dart';
 import 'package:flutter_redux/flutter_redux.dart';

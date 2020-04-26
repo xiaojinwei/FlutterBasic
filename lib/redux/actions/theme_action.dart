@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/models/app_state.dart';
+import 'package:flutter_basic/redux/models/app_state.dart';
 import 'package:redux/redux.dart';
 
 class ThemeColorAction{
